@@ -1,0 +1,49 @@
+---
+const navItems = [
+  {
+    title: "Inicio",
+    label: "Inicio",
+    url: "/#Inicio",
+  },
+  {
+    title: "Destacados",
+    label: "Destacados",
+    url: "/#Destacados",
+  },
+  {
+    title: "Entregas",
+    label: "Entregas",
+    url: "/#entregas",
+  },
+  {
+    title: "Comprar",
+    label: "comprar",
+    url: "/#comprar",
+  },
+]
+---
+
+<header class="bg-white shadow-sm">
+  <div class="container mx-auto px-4">
+    <nav class="flex items-center justify-between h-16">
+      <div class="flex-shrink-0">
+        <a href="/" class="text-xl font-bold text-gray-800">Botines Premium JM</a>
+      </div>
+      <div class="hidden md:block">
+        <ul class="flex space-x-4">
+          {
+            navItems.map((link) => (
+              <a
+                class="relative block px-2 py-2 transition hover:text-gray-500"
+                aria-label={link.label}
+                href={link.url}
+              >
+                {link.title}
+              </a>
+            ))
+          }
+        </ul>
+      </div>
+    </nav>
+  </div>
+</header>

@@ -1,0 +1,30 @@
+---
+import BienvenidaBotines from '../components/BienvenidaBotines.astro';
+import ComoComprar from '../components/ComoComprar.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import SeccionBotines from '../components/SeccionBotines.astro';
+import SectionContainer from '../components/SectionContainer.astro';
+import TresRectangulos from '../components/TresRectangulos.astro';
+import VideosEntregados from '../components/VideosEntregados.astro';
+import Layout from '../layouts/Layout.astro';
+
+---
+
+<Layout title="Your Page Title" description="Your Page Description">
+	<main class="px-6 ">
+		<Header />
+		<BienvenidaBotines id="Inicio" />
+		<TresRectangulos />
+		<SectionContainer id="Destacados" />
+	<SeccionBotines />
+	<SectionContainer />
+	<SectionContainer id="entregas">
+	<VideosEntregados  />
+	</SectionContainer>
+	<SectionContainer id="comprar">
+	<ComoComprar />
+	</SectionContainer>
+ </main>
+<Footer />
+</Layout>
