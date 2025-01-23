@@ -27,14 +27,14 @@ const navItems = [
   <div class="container mx-auto px-4">
     <nav class="flex flex-col sm:flex-row items-center justify-between py-4 sm:h-16">
       <div class="flex-shrink-0 mb-4 sm:mb-0 text-center sm:text-left w-full sm:w-auto">
-        <a href="/" class="text-2xl font-bold text-black">Botines Premium JM</a>
+        <a href="/" class="text-xl sm:text-2xl font-bold text-black">Botines Premium JM</a>
       </div>
-      <div class="w-full sm:w-auto overflow-x-auto sm:overflow-x-visible">
-        <ul class="flex justify-center sm:justify-end space-x-2 min-w-max sm:min-w-0">
+      <div class="w-full sm:w-auto">
+        <ul class="flex  justify-center sm:justify-end space-x-1 sm:space-x-2">
           {navItems.map((link) => (
             <li>
               <a
-                class="block px-3 py-2 text-sm sm:text-base whitespace-nowrap transition hover:text-gray-500"
+                class="block px-2 py-1 text-sm sm:text-base whitespace-nowrap transition hover:text-gray-500"
                 aria-label={link.label}
                 href={link.url}
               >

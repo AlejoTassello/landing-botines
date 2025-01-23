@@ -1,174 +1,87 @@
 ---
-import { botines } from "../data/botines.js";
+import BotinesGaleria from "../components/BotinesGaleria.astro";
 import Header from "../components/Header.astro";
-import SectionContainer from "../components/SectionContainer.astro";
+import Layout from "../layouts/Layout.astro";
+
+
+
+const botines = [
+{ imagen: "/1.webp", precio: 135.000, marca: "Nike", modelo: "Mercurial Superfly SG", categoria: "Futbol 11", talle: "39-45" },
+  { imagen: "/2.webp", precio: 135.000, marca: "Puma", modelo: "Future", categoria: "Futbol 11", talle: "39-45" },
+  { imagen: "/3.webp", precio: 135.000, marca: "Nike", modelo: "Mercurial Superfly SG", categoria: "Futbol 11", talle: "39-45" },
+  { imagen: "/4.webp", precio: 135.000, marca: "Puma", modelo: "Future", categoria: "Futbol 11", talle: "39-45" },
+  { imagen: "/5.webp", precio: 135.000, marca: "Nike", modelo: "Tiempo R10 FG", categoria: "Futbol 11", talle: "39-45" },
+  { imagen: "/6.webp", precio: 135.000, marca: "Adidas", modelo: "Predator 30 TF", categoria: "Futbol 11", talle: "39-45" },
+  { imagen: "/7.webp", precio: 115.000, marca: "Nike", modelo: "Mercurial Vapor SG", categoria: "Futbol 5", talle: "39-45" },
+  { imagen: "/8.webp", precio: 135.000, marca: "Adidas", modelo: "Copa Pure || FG", categoria: "Futbol", talle: "39-45" },
+  { imagen: "/9.webp", precio: 115.000, marca: "Adidas", modelo: "Copa Gloro TF", categoria: "Futbol 11", talle: "39-45" },
+  { imagen: "/10.webp", precio: 115.000, marca: "Nike", modelo: "Mercurial Vapor TF", categoria: "Futbol 5", talle: "39-45" },
+  { imagen: "/11.webp", precio: 135.000, marca: "Adidas", modelo: "F50 SG", categoria: "Futbol 11", talle: "39-45" },
+  { imagen: "/12.webp", precio: 115.000, marca: "Puma", modelo: "Future", categoria: "Futbol 5", talle: "39-45" },
+  { imagen: "/13.webp", precio: 115.000, marca: "Nike", modelo: "Lunar Gato", categoria: "Futsal", talle: "39-45" },
+  { imagen: "/14.webp", precio: 139, marca: "Nike", modelo: "Phantom", categoria: "Futsal", talle: "39-45" },
+  { imagen: "/15.webp", precio: 135.000, marca: "Adidas", modelo: "F50 SG", categoria: "Futbol 11", talle: "39-45" },
+  { imagen: "/16.webp", precio: 135.000, marca: "Nike", modelo: "Phantom SG", categoria: "Futbol 11", talle: "39-45" },
+  { imagen: "/17.webp", precio: 135.000, marca: "Nike", modelo: "Phantom SG", categoria: "Futbol 11", talle: "39-45" },
+  { imagen: "/18.webp", precio: 135.000, marca: "Nike", modelo: "Mercurial Superfly", categoria: "Futbol 11", talle: "39-45" },
+  { imagen: "/19.webp", precio: 115.000, marca: "Adidas", modelo: "Copa", categoria: "Futbol 5", talle: "39-45" },
+  { imagen: "/20.webp", precio: 135.000, marca: "Nike", modelo: "Mercurial Superfly", categoria: "Futbol 11", talle: "39-45" },
+  { imagen: "/21.webp", precio: 115.000, marca: "Nike", modelo: "Phantom", categoria: "Futsal", talle: "39-45" },
+  { imagen: "/22.webp", precio: 115.000, marca: "Adidas", modelo: "F50", categoria: "Futsal", talle: "39-45" },
+  { imagen: "/23.webp", precio: 135.000, marca: "Adidas", modelo: "Copa", categoria: "Futbol 11", talle: "39-45" },
+  { imagen: "/24.webp", precio: 135.000, marca: "Puma", modelo: "Future", categoria: "Futbol 11", talle: "39-45" },
+  { imagen: "/25.webp", precio: 135.000, marca: "Nike", modelo: "Mercurial Vapor", categoria: "Futbol 11", talle: "39-45" },
+  { imagen: "/26.webp", precio: 135.000, marca: "Adidas", modelo: "F50", categoria: "Futbol 11", talle: "39-45" },
+  { imagen: "/27.webp", precio: 135.000, marca: "Nike", modelo: "Phantom SG", categoria: "Futbol 11", talle: "39-45" },
+  { imagen: "/28.webp", precio: 115.000, marca: "Adidas", modelo: "X Speedflow", categoria: "Futsal", talle: "39-45" },
+  { imagen: "/29.webp", precio: 115.000, marca: "Nike", modelo: "Mercurial", categoria: "Futbol 5", talle: "39-45" },
+  { imagen: "/30.webp", precio: 115.000, marca: "Adidas", modelo: "F50", categoria: "Futbol 5", talle: "39-45" },
+  { imagen: "/31.webp", precio: 115.000, marca: "Nike", modelo: "Tiempo", categoria: "Futsal", talle: "39-45" },
+  { imagen: "/32.webp", precio: 115.000, marca: "Nike", modelo: "Mercurial", categoria: "Futbol 5", talle: "39-45" },
+  { imagen: "/33.webp", precio: 115.000, marca: "Adidas", modelo: "F50", categoria: "Futsal", talle: "39-45" },
+  { imagen: "/34.webp", precio: 115.000, marca: "Nike", modelo: "Phantom", categoria: "Futsal", talle: "39-45" },
+  { imagen: "/35.webp", precio: 135.000, marca: "Puma", modelo: "Ultra", categoria: "Futbol 11", talle: "39-45" },
+  { imagen: "/36.webp", precio: 115.000, marca: "Nike", modelo: "Tiempo", categoria: "Futbol 5", talle: "39-45" },
+  { imagen: "/37.webp", precio: 135.000, marca: "Nike", modelo: "Tiempo", categoria: "Futbol 11", talle: "39-45" },
+  { imagen: "/38.webp", precio: 135.000, marca: "Adidas", modelo: "Predator", categoria: "Futbol 11", talle: "39-45" },
+  { imagen: "/39.webp", precio: 115.000, marca: "Nike", modelo: "Tiempo", categoria: "Futbol 5", talle: "39-45" },
+  { imagen: "/40.webp", precio: 115.000, marca: "Adidas", modelo: "Copa", categoria: "Futbol 5", talle: "39-45" },
+  { imagen: "/41.webp", precio: 115.000, marca: "Adidas", modelo: "Copa Gloro TF", categoria: "Futbol 5", talle: "39-45" },
+  { imagen: "/42.webp", precio: 115.000, marca: "Nike", modelo: "Tiempo Legend XTF", categoria: "Futbol 5", talle: "39-45" },
+  { imagen: "/superfly4.webp", precio: 135.000 , marca: "Nike", modelo: "Superfly 4", categoria: "Futbol", talle: "39-45" },
+  { imagen: "/Vapor16.webp", precio: 135.000 , marca: "Nike", modelo: "Vapor 16",categoria: "Futbol", talle: "39-45" },
+  { imagen: "/F50.webp", precio: 135.000 , marca: "Adidas", modelo: "F50",  categoria: "Futbol", talle: "39-45" },
+  { imagen: "/gxIIsg.webp", precio: 135.000 , marca: "Nike", modelo: "Phantom GX II SG", categoria: "Futbol", talle: "39-45" },
+  ];
 ---
-<head>
-  <meta charset="UTF-8" />
-</head>
-<main class="px-6">
-  <Header  />
 
-  <section class="py-12 bg-white">
-    <div class="container mx-auto px-4">
-      <h2 class="text-4xl font-bold text-center mb-12 text-gray-800">Botines Disponibles</h2>
-
-      <!-- Buscador y Filtros -->
-      <div class="flex flex-col md:flex-row justify-between items-center mb-8 space-y-4 md:space-y-0 md:space-x-4">
-        <div class="w-full md:w-1/2 relative">
-          <input 
-            type="text" 
-            id="buscador"
-            placeholder="Buscar botines..." 
-            class="w-full px-4 py-3 pl-10 pr-4 rounded-full border-2 border-gray-300 focus:border-black transition duration-300 sm:text-lg"
-          />
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400 absolute left-3 top-1/2 transform -translate-y-1/2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-          </svg>
-        </div>
-        <select 
-          id="filtro" 
-          class="w-full md:w-auto px-4 py-3 rounded-full border-2 border-gray-300 focus:border-black transition duration-300 bg-white sm:text-lg"
-        >
-          <option value="">Todas las Categorías</option>
-          <option value="Futbol">Fútbol</option>
-          <option value="Futbol 5">Fútbol 5</option>
-          <option value="Futsal">Futsal</option>
-        </select>
-      </div>
-
-      <!-- Contenedor de Botines -->
-      <div id="galeria" class="grid sm:grid-cols-1 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-        {botines.map((botin) => (
-          <div class="bg-white rounded-2xl overflow-hidden shadow transform transition duration-300 hover:scale-105 
-            max-w-[220px] sm:max-w-[250px] md:max-w-[280px] mx-auto w-full sm:w-auto sm:mb-4">
-            
-            <img src={botin.imagen} alt={`${botin.marca} ${botin.modelo}`} 
-              class="w-full h-32 object-contain p-1 aspect-[5/3]" />
-            
-            <div class="p-1 sm:p-2">
-              <h4 class="font-semibold text-xs sm:text-sm line-clamp-1">{botin.marca} {botin.modelo}</h4>
-              <div class="flex justify-between items-center pt-1 sm:pt-2">
-                <p class="font-semibold text-gray-500 text-xs sm:text-sm">{botin.categoria}</p>
-                <h5 class="font-semibold text-xs sm:text-sm">${botin.precio}.000</h5>
-              </div>
-              <p class="py-1 font-medium text-gray-400 text-xs sm:text-sm">Talle: {botin.talle}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-      
-      
-
-
-      <!-- Paginación -->
-      <div class="flex justify-center mt-12" id="paginacion"></div>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+<Layout title="Botines Premium JM - Venta de botines profesional" description="Venta de botines de fútbol, fútbol 5 y futsal de las mejores marcas. Envíos a todo el país.">
+<main class="px-8">
+<Header/>
+<section class="py-12 bg-white">
+  <div class=" mx-auto px-6">
+    <h2 class="text-3xl sm:text-5xl font-bold text-center mb-8">Botines Disponibles</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {botines.map((botin) => (
+        <BotinesGaleria 
+          imagen={botin.imagen}
+          precio={botin.precio}
+          marca={botin.marca}
+          modelo={botin.modelo}
+          categoria={botin.categoria}
+          talle={botin.talle}
+        />
+      ))}
     </div>
-  </section>
+  </div>
 </main>
-
-<script>
-import { botines } from "../data/botines";
-
-document.addEventListener("DOMContentLoaded", () => {
-  const botinesList = [...botines];
-  let searchTerm = "";
-  let filterCategory = "";
-  let currentPage = 1;
-  const itemsPerPage = 12;
-
-  const buscador = document.getElementById("buscador");
-  const filtro = document.getElementById("filtro");
-  const galeria = document.getElementById("galeria");
-  const paginacion = document.getElementById("paginacion");
-
-  function renderBotines() {
-    let botinesFiltrados = botinesList
-      .filter((botin) => 
-        botin.marca.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        botin.modelo.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        botin.categoria.toLowerCase().includes(searchTerm.toLowerCase())
-      )
-      .filter((botin) => (filterCategory ? botin.categoria === filterCategory : true));
-
-    const totalPages = Math.ceil(botinesFiltrados.length / itemsPerPage);
-    currentPage = Math.min(currentPage, totalPages);
-    const inicio = (currentPage - 1) * itemsPerPage;
-    const botinesPaginados = botinesFiltrados.slice(inicio, inicio + itemsPerPage);
-
-    // Renderiza los botines
-    if (galeria) {
-  galeria.innerHTML = botinesPaginados
-    .map((botin) => `
-      <div class="bg-white rounded-2xl overflow-hidden shadow transform transition duration-300 hover:scale-105 
-        w-full sm:max-w-sm lg:max-w-md mx-auto sm:mb-4">
-        
-        <img src="${botin.imagen}" alt="${botin.marca} ${botin.modelo}" 
-          class="w-full h-52 lg:h-64 object-contain p-2 aspect-[5/3]" />
-
-        <div class="p-4">
-          <h4 class="font-semibold text-sm sm:text-base lg:text-lg line-clamp-1">${botin.marca} ${botin.modelo}</h4>
-          <div class="flex justify-between items-center pt-1 sm:pt-2">
-            <p class="font-semibold text-gray-500 text-sm sm:text-base lg:text-lg">${botin.categoria}</p>
-            <h5 class="font-semibold text-sm sm:text-base lg:text-lg">$${botin.precio}.000</h5>
-          </div>
-          <p class="py-1 font-medium text-gray-400 text-sm sm:text-base lg:text-lg">Talle: ${botin.talle}</p>
-        </div>
-      </div>
-    `)
-    .join("");
-}
+</Layout>
 
 
-
-
-
-    // Renderiza la paginación
-    if (paginacion) {
-      paginacion.innerHTML = "";
-      for (let i = 1; i <= totalPages; i++) {
-        const button = document.createElement("button");
-        button.innerText = i.toString();
-        button.className = `px-5 py-3 mx-1 rounded-full sm:text-lg sm:px-6 sm:py-4 ${
-          currentPage === i
-            ? "bg-black text-white"
-            : "bg-gray-200 text-black hover:bg-black hover:text-white"
-        } transition duration-300`;
-        button.onclick = () => {
-          currentPage = i;
-          renderBotines();
-        };
-        paginacion.appendChild(button);
-      }
-    }
-  }
-
-  // Listeners para búsqueda y filtros
-  if (buscador) {
-    buscador.addEventListener("input", (e) => {
-      const target = e.target;
-      if (target) {
-        searchTerm = (target as HTMLInputElement).value;
-      }
-      currentPage = 1;
-      renderBotines();
-    });
-  }
-
-  if (filtro) {
-    filtro.addEventListener("change", (e) => {
-      const target = e.target;
-      if (target) {
-        filterCategory = (target as HTMLSelectElement).value;
-        currentPage = 1;
-        renderBotines();
-      }
-    });
-  }
-
-  renderBotines();
-});
-</script>
 
 
 
