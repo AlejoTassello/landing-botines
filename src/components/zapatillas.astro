@@ -1,0 +1,22 @@
+---
+interface Props {
+  imagen: string;
+  precio: number;
+  marca: string;
+  modelo: string;
+  talle: string;
+}
+
+const { imagen, precio, marca, modelo, talle} = Astro.props;
+---
+
+<div class="bg-white rounded-3xl overflow-hidden shadow">
+    <img src={imagen} class="flex-center p-2 overflow-hidden relative transition-all duration-300"/>
+    <div class="p-2">
+      <h4 class="font-semibold line-clamp-1 !py-0">{marca} {modelo}</h4>
+      <div class="flex justify-between items-center pt-1">
+        <h5 class="pr-2 font-semibold">${precio}.000</h5>
+      </div>
+      <p class=" py-2 font-medium text-black">{talle}</p>
+    </div>
+  </div>

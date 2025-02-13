@@ -1,0 +1,94 @@
+---
+import Zapas from "./zapatillas.astro";
+
+const zapatillas = [
+{ imagen: "/BLAZER.webp", precio: 145, marca: "Nike", modelo: "BLAZER MID", talle: "TALLES: 36EUR al 45EUR" },
+  { imagen: "/DEPOR.webp", precio: 145, marca: "Nike", modelo: "ALPHAFLY NEXT", talle: "TALLES: 36EUR al 45EUR" },
+  { imagen: "/adidas1.webp", precio: 145, marca: "Adidas", modelo: "ADIZERO ADIOS PRO 3", talle: "TALLES: 36EUR al 45EUR" },
+  { imagen: "/adidas2.webp", precio: 145, marca: "Adidas", modelo: "ORIGINALS OZWEEGO", talle: "TALLES: 36EUR al 45EUR" },
+  { imagen: "/adidas3.webp", precio: 145, marca: "Adidas", modelo: "BAD BUNNY X CAMPUS", talle: "TALLES: 36EUR al 45EUR" },
+  { imagen: "/FORCE1.webp", precio: 145, marca: "Nike", modelo: "SB DUNK LOW SUPREME", talle: "TALLES: 36EUR al 45EUR" },
+  { imagen: "/DUNK.webp", precio: 145, marca: "Nike", modelo: "AIR FORCE 1", talle: "TALLES: 36EUR al 45EUR" },
+];
+---
+<!-- Importar estilos de Swiper -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+
+<section class="py-12 bg-white">
+  <div class="mx-auto px-10 ">
+    <h2 class="sm:text-3xl font-bold text-center mb-8">Zapatillas por encargue</h2>
+
+    <!-- Swiper Carousel -->
+    <div class="relative">
+      <div class="swiper">
+        <div class="swiper-wrapper">
+          {zapatillas.map((botin) => (
+            <div class="swiper-slide flex">
+              <Zapas 
+                imagen={botin.imagen}
+                precio={botin.precio}
+                marca={botin.marca}
+                modelo={botin.modelo}
+                talle={botin.talle}
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Botones de navegación (fuera de las imágenes) -->
+      <div class="swiper-button-prev custom-swiper-button"></div>
+      <div class="swiper-button-next custom-swiper-button"></div>
+     
+    </div>
+  </div>
+
+
+
+
+
+
+<!-- Importar Swiper y activar el carrusel -->
+<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+<script type="module">
+  import Swiper from 'https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.esm.browser.min.js';
+  document.addEventListener("DOMContentLoaded", function () {
+    new Swiper(".swiper", {
+      slidesPerView: 1, // En móviles
+      spaceBetween: 20,
+      loop: true,
+      pagination: { el: ".swiper-pagination", clickable: true },
+      navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" },
+      breakpoints: {
+        640: { slidesPerView: 2 }, // Tablets
+        1024: { slidesPerView: 3 }, // Laptops
+        1280: { slidesPerView: 4 }, // Pantallas grandes
+      }
+    });
+  });
+</script>
+
+<!-- Estilos personalizados para Swiper -->
+<style>
+
+.swiper {
+  padding: 15px; /* Espacio para que no se corten */
+}
+
+  /* Ajuste de los botones de navegación */
+  .custom-swiper-button {
+    color: black !important; /* Cambia el color de las flechas a negro */
+    width: 40px;
+    height: 40px;
+  }
+
+  .swiper-button-prev {
+    left: -50px; /* Mueve la flecha izquierda más afuera */
+  }
+
+  .swiper-button-next {
+    right: -50px; /* Mueve la flecha derecha más afuera */
+  }
+
+  
+</style>
